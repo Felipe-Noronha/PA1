@@ -4,7 +4,6 @@ from django.contrib.auth.models import AbstractUser, Group, Permission
 class CustomUser(AbstractUser):
     nome = models.CharField(max_length=255, blank=True)
     email = models.EmailField(unique=True)
-    data_nascimento = models.DateField(null=True, blank=True)
     
    
     groups = models.ManyToManyField(Group, related_name='customuser_set', blank=True)
