@@ -8,28 +8,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    <header class="bg-dark text-light text-center py-2">
-        <h1>O Amor Venceu hein</h1>
-    </header>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            {% if not user_authenticated %}
-                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="/cadastrar">Cadastrar</a></li>
-            {% else %}
-                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
-            {% endif %}
-        </ul>
-    </nav>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+            <div class="container"> <!-- Container dentro da navbar -->
+                <ul class="navbar-nav mr-auto"> <!-- Home à esquerda -->
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                </ul>
+                <ul class="navbar-nav ml-auto"> <!-- Login e Cadastrar à direita -->
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/cadastrar">Cadastrar</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </div>
 
     <main class="container mt-4">
         {% block content %}{% endblock %}
     </main>
 
     <footer class="bg-dark text-light text-center py-2 fixed-bottom">
-        <p>Faz o L</p>
+        <p>&copy; 2024 PA1. Todos os direitos reservados.</p>
     </footer>
 
     <!-- Inclua o Bootstrap JS e o jQuery (substitua os links pelos caminhos corretos) -->

@@ -133,8 +133,6 @@ LOGOUT_REDIRECT_URL = 'index'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-AUTH_USER_MODEL = 'user.CustomUser'
-
 LOGIN_REDIRECT_URL = 'logado'  # Página para redirecionar após o login
 LOGOUT_REDIRECT_URL = 'index'  # Página para redirecionar após o logout
 
